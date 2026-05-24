@@ -1,7 +1,7 @@
 # AdrianMod
 
 This is a Terraria mod for my most goated HUB O.
-Now you get to fight him in Terraria as a boss.
+Now you get to fight him in Terraria as a boss!
 (100% lore accurate, I've seen him do all these moves irl)
 
 ## ⚠️ IMPORTANT
