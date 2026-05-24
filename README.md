@@ -24,7 +24,7 @@ Craft the **IPPT Gold** at an Ancient Manipulator:
 - 1x Celestial Sigil
 - 1x Gold or Platinum Bar
 
-Use the sigil anywhere. Good luck.
+Use the item anywhere. Good luck.
 
 ## Notes
 - Recommended to fight post-Moon Lord
