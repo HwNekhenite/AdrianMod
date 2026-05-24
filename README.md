@@ -12,7 +12,7 @@ Find the latest `.tmod` file under the **Releases** tab on the right side of thi
 
 ## Installation
 1. Download the `.tmod` file (In 'R')
-2. Place it in your tModLoader mods folder: `\Documents\My Games\Terraria\tModLoader\Mods`
+2. Place it in your tModLoader mods folder: `Documents\My Games\Terraria\tModLoader\Mods`
 3. Launch tModLoader
 4. Go to **Mods** from the main menu
 5. Find **AdrianMod** and enable it
