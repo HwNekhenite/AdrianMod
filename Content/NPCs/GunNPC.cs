@@ -15,6 +15,25 @@ namespace AdrianMod.Content.NPCs
     public class GunNPC : ModNPC
     {
 
+        public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
+        {
+            Player player = Main.player[NPC.target];
+
+            // 1. THE ZENITH CHECK
+            if (player.HeldItem.type == ItemID.Zenith)
+            {
+                // "The Apex meets the Apex." 
+                // We keep Zenith damage normal (or slightly reduced if it's still too fast)
+                modifiers.FinalDamage *= 1f;
+
+
+            }
+            else
+            {
+                modifiers.FinalDamage *= 3f;
+            }
+        }
+
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[NPC.type] = 2; // Example: 4 animation frames

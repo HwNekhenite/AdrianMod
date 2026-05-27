@@ -17,6 +17,24 @@ namespace AdrianMod.Content.NPCs
     [AutoloadBossHead]
     public class AdrianTreeNPC : ModNPC
     {
+        public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
+        {
+            Player player = Main.player[NPC.target];
+
+            // 1. THE ZENITH CHECK
+            if (player.HeldItem.type == ItemID.Zenith)
+            {
+                // "The Apex meets the Apex." 
+                // We keep Zenith damage normal (or slightly reduced if it's still too fast)
+                modifiers.FinalDamage *= 1f;
+
+
+            }
+            else
+            {
+                modifiers.FinalDamage *= 2f;
+            }
+        }
 
         public override void SetStaticDefaults()
         {
@@ -162,7 +180,7 @@ namespace AdrianMod.Content.NPCs
             {
                 Timer++;
 
-                if (Timer % 270 == 0)
+                if (Timer % 360 == 0)
                 {
                     SoundEngine.PlaySound(new SoundStyle("AdrianMod/Content/Sounds/BigBoom") with { Pitch = 0.8f, Volume = 1.5f });
 

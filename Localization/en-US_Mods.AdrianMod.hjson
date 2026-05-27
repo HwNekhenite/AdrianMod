@@ -17,3 +17,10 @@ NPCs: {
 	GunNPC.DisplayName: SAR 21
 	AdrianTreeNPC.DisplayName: NIBBLER REALM
 }
+
+Buffs: {
+	MercyBuff: {
+		Description: Adrian feels bad for you. Since you couldn't be bothered to get a Zenith, he's letting you hit harder. Increased damage to Adrian and his allies.
+		DisplayName: MERCY
+	}
+}

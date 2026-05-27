@@ -1,4 +1,5 @@
 ﻿
+using AdrianMod.Content.Buffs;
 using AdrianMod.Content.Items;
 using Humanizer;
 using Microsoft.Xna.Framework;
@@ -20,6 +21,25 @@ namespace AdrianMod.Content.NPCs
     [AutoloadBossHead]
     public class AdrianBossNPC : ModNPC
     {
+
+        public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
+        {
+            Player player = Main.player[NPC.target];
+
+            // 1. THE ZENITH CHECK
+            if (player.HeldItem.type == ItemID.Zenith)
+            {
+                // "The Apex meets the Apex." 
+                // We keep Zenith damage normal (or slightly reduced if it's still too fast)
+                modifiers.FinalDamage *= 1f;
+
+
+            }
+            else
+            {
+                modifiers.FinalDamage *= 2f;
+            }
+        }
 
         public override bool CheckActive()
         {
@@ -53,7 +73,7 @@ namespace AdrianMod.Content.NPCs
         {
             NPC.width = 75;
             NPC.height = 150;
-            NPC.damage = 100;
+            NPC.damage = 80;
             NPC.defense = 20;
             NPC.lifeMax = 150000;
             NPC.HitSound = SoundID.NPCHit1;
@@ -168,6 +188,11 @@ namespace AdrianMod.Content.NPCs
             NPC.TargetClosest(true);
 
             Player player = Main.player[NPC.target];
+
+            if (player.HeldItem.type != ItemID.Zenith)
+            {
+                player.AddBuff(ModContent.BuffType<MercyBuff>(), 2);
+            }
 
             if (!player.active || player.dead)
             {
@@ -434,7 +459,7 @@ namespace AdrianMod.Content.NPCs
                         Music = MusicLoader.GetMusicSlot(Mod, "Content/Music/Domain1");
                     }
 
-                    if (Timer == 240)
+                    if (Timer == 360)
                     {
                         if (Main.dayTime)
                         {
