@@ -26,18 +26,15 @@ namespace AdrianMod.Content.NPCs
         {
             Player player = Main.player[NPC.target];
 
-            // 1. THE ZENITH CHECK
-            if (player.HeldItem.type == ItemID.Zenith)
+            
+            if (player.HasBuff(ModContent.BuffType<MercyBuff>()))
             {
-                // "The Apex meets the Apex." 
-                // We keep Zenith damage normal (or slightly reduced if it's still too fast)
-                modifiers.FinalDamage *= 1f;
-
+                modifiers.FinalDamage *= 2f;
 
             }
             else
             {
-                modifiers.FinalDamage *= 2f;
+                modifiers.FinalDamage *= 1f;
             }
         }
 
@@ -189,7 +186,7 @@ namespace AdrianMod.Content.NPCs
 
             Player player = Main.player[NPC.target];
 
-            if (player.HeldItem.type != ItemID.Zenith)
+            if (player.HeldItem.type != ItemID.Zenith && player.HeldItem.damage < 300)
             {
                 player.AddBuff(ModContent.BuffType<MercyBuff>(), 2);
             }
@@ -459,7 +456,7 @@ namespace AdrianMod.Content.NPCs
                         Music = MusicLoader.GetMusicSlot(Mod, "Content/Music/Domain1");
                     }
 
-                    if (Timer == 360)
+                    if (Timer == 240)
                     {
                         if (Main.dayTime)
                         {
